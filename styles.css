@@ -78,8 +78,7 @@ body {
     align-items: center;
     justify-content: center;
     /* Фото на обложке: масштабирование по высоте, пустоты закрыты цветом */
-    background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.5)),
-                url('.jpg') center/auto 100% no-repeat;
+    background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.5));
     background-color: #cfc4b6;
     transition: opacity 0.8s, visibility 0.8s, transform 0.8s;
     overflow: hidden;
@@ -649,4 +648,65 @@ body {
     .cover-title { font-size: 1.5rem; }
     .countdown-number { font-size: 1.5rem; }
     .hero-age { font-size: 3rem; }
+}
+
+/* ==================== МУЗЫКАЛЬНАЯ КНОПКА ==================== */
+.music-toggle {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    z-index: 900;                /* ниже обложки, выше контента */
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--beige);
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-smooth);
+    padding: 0;
+}
+
+.music-toggle:hover {
+    background: var(--white);
+    border-color: var(--taupe);
+    box-shadow: var(--shadow-lg);
+    transform: scale(1.06);
+}
+
+.music-toggle:active {
+    transform: scale(0.95);
+}
+
+.music-icon {
+    font-size: 1.4rem;
+    line-height: 1;
+    transition: opacity 0.3s;
+}
+
+/* Анимация пульсации, когда музыка играет */
+.music-toggle.playing .music-icon {
+    animation: musicPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .music-toggle {
+        top: 16px;
+        left: 16px;
+        width: 42px;
+        height: 42px;
+    }
+    .music-icon {
+        font-size: 1.2rem;
+    }
 }

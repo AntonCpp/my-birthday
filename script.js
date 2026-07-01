@@ -66,7 +66,14 @@ function openInvitation() {
     invitationWrapper.classList.add('visible');
     // Прокручиваем к началу приглашения
     invitationWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+
+    showMusicButton();
+    playMusic();
+
   }, 400);
+
+
 
   // Запускаем обратный отсчёт после открытия
   if (!countdownInterval) {
@@ -214,3 +221,49 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 console.log('🌿 Приглашение на юбилей готово!');
 console.log('📅 Дата события:', EVENT_DATE.toLocaleString('ru-RU'));
 console.log('✨ Нажмите на печать, чтобы открыть приглашение.');
+
+// ==================== МУЗЫКА ====================
+const musicToggle = document.getElementById('musicToggle');
+const musicIcon = musicToggle?.querySelector('.music-icon');
+
+// Замените 'audio/music.mp3' на вашу прямую ссылку
+const audio = new Audio('Billie Eilish - Ocean Eyes.mp3');
+audio.loop = true;
+audio.volume = 0.4;
+let isMusicPlaying = false;
+
+// Функция запуска музыки
+function playMusic() {
+  if (!isMusicPlaying) {
+    audio.play().then(() => {
+      isMusicPlaying = true;
+      if (musicToggle) {
+        musicToggle.classList.add('playing');
+        if (musicIcon) musicIcon.textContent = '🎶';
+      }
+    }).catch(err => {
+      console.warn('Не удалось запустить музыку:', err);
+    });
+  }
+}
+
+// Показать кнопку (вызывается при открытии приглашения)
+function showMusicButton() {
+  if (musicToggle) {
+    musicToggle.style.display = 'flex';   // показываем
+  }
+}
+
+// Обработчик нажатия на кнопку
+if (musicToggle) {
+  musicToggle.addEventListener('click', () => {
+    if (isMusicPlaying) {
+      audio.pause();
+      musicToggle.classList.remove('playing');
+      if (musicIcon) musicIcon.textContent = '🎵';
+      isMusicPlaying = false;
+    } else {
+      playMusic();
+    }
+  });
+}
