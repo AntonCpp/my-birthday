@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Приглашение на Юбилей</title>
+  <link rel="stylesheet" href="styles.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ==================== ОБЛОЖКА / КОНВЕРТ ==================== -->
+  <div class="cover-overlay" id="coverOverlay">
+    <div class="cover-particles" id="coverParticles"></div>
+    <div class="cover-card">
+      <!-- Декоративный вензель сверху -->
+      <div class="cover-ornament top-ornament">
+        <span class="ornament-line"></span>
+        <span class="ornament-diamond">◆</span>
+        <span class="ornament-line"></span>
+      </div>
+
+      <!-- Заголовок -->
+      <p class="cover-subtitle">Торжественное событие</p>
+      <h1 class="cover-title">Приглашение<br>на Юбилей</h1>
+
+      <!-- Декоративная разделительная линия -->
+      <div class="cover-divider">
+        <span class="divider-leaf">🌿</span>
+        <span class="divider-dot">•</span>
+        <span class="divider-leaf">🌿</span>
+      </div>
+
+      <!-- Имя юбиляра -->
+      <p class="cover-honoree">Инне — 50 лет!</p>
+
+      <!-- Кнопка-печать -->
+      <button class="elegant-button" id="openButton" aria-label="Открыть приглашение">
+        <span class="elegant-button-text">Открыть приглашение</span>
+        <span class="elegant-button-icon">→</span>
+      </button>
+      <!-- Декоративный вензель снизу -->
+      <div class="cover-ornament bottom-ornament">
+        <span class="ornament-line"></span>
+        <span class="ornament-diamond">◆</span>
+        <span class="ornament-line"></span>
+      </div>
+    </div>
+    <!-- Подсказка внизу -->
+    <p class="cover-hint">Нажмите на печать, чтобы открыть</p>
+  </div>
+
+  <!-- ==================== ОСНОВНОЙ КОНТЕНТ ПРИГЛАШЕНИЯ ==================== -->
+  <main class="invitation-wrapper" id="invitationWrapper">
+
+    <!-- Герой-секция -->
+    <header class="hero-section">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-date-badge">11 июля 2026</p>
+        <h1 class="hero-title">Юбилей</h1>
+        <p class="hero-name">Инна</p>
+        <p class="hero-age">50</p> <!-- можно указать возраст -->
+        <p class="hero-tagline">Приглашаю разделить радость этого дня!</p>
+      </div>
+      <div class="hero-scroll-indicator">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
+
+    <!-- Секция с основной информацией -->
+    <section class="info-section" id="info">
+      <div class="section-inner">
+        <div class="info-card">
+          <div class="info-icon">📅</div>
+          <h3>Дата</h3>
+          <p class="info-value">11 июля 2026</p>
+          <p class="info-sub">Суббота</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🕕</div>
+          <h3>Время</h3>
+          <p class="info-value">17:00</p>
+          <p class="info-sub">Сбор гостей с 16:50</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">👔</div>
+          <h3>Дресс-код</h3>
+          <p class="info-value">Вечерний</p>
+          <p class="info-sub">Нарядный стиль</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция с обратным отсчётом -->
+    <section class="countdown-section" id="countdown">
+      <div class="countdown-bg-pattern"></div>
+      <div class="section-inner">
+        <h2 class="section-title">
+          <span class="title-ornament">◇</span>
+          До праздника осталось
+          <span class="title-ornament">◇</span>
+        </h2>
+        <div class="countdown-grid" id="countdownGrid">
+          <div class="countdown-item">
+            <div class="countdown-flip">
+              <span class="countdown-number" id="days">00</span>
+            </div>
+            <span class="countdown-label">Дней</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-item">
+            <div class="countdown-flip">
+              <span class="countdown-number" id="hours">00</span>
+            </div>
+            <span class="countdown-label">Часов</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-item">
+            <div class="countdown-flip">
+              <span class="countdown-number" id="minutes">00</span>
+            </div>
+            <span class="countdown-label">Минут</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-item">
+            <div class="countdown-flip">
+              <span class="countdown-number" id="seconds">00</span>
+            </div>
+            <span class="countdown-label">Секунд</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция с локацией -->
+    <section class="location-section" id="location">
+      <div class="section-inner">
+        <h2 class="section-title">
+          <span class="title-ornament">◇</span>
+          Место проведения
+          <span class="title-ornament">◇</span>
+        </h2>
+
+        <!-- Фотография локации -->
+        <div class="location-photo-wrapper">
+          <img src="жемчужина.jpg"
+            alt="Банкетный зал — место проведения юбилея" class="location-photo" loading="lazy">
+          
+           
+          
+        </div>
+
+        <!-- Блок с картой и адресом -->
+        <div class="location-details">
+          <div class="location-map-wrapper">
+            <iframe
+              src="https://yandex.ru/map-widget/v1/?um=constructor%3A9df22d6b5b4e1569831c0037deb97578e672d1bbc29d4cc5eea1a4b7d4192541&amp;source=constructor"
+              width="557" height="451" frameborder="0"></iframe>
+          </div>
+          <div class="location-info-box">
+            <div class="location-venue-name">Ресторан «Жемчужина»</div>
+            <p class="location-address">
+              <span class="loc-icon">📍</span>
+              г. Таганрог, ул. Фрунзе, 15
+            </p>
+            <p class="location-metro">
+             
+            <a href="https://yandex.ru/maps/-/CTaDRZoc" target="_blank" rel="noopener noreferrer"
+              class="location-link-btn">
+              Открыть в Яндекс.Картах
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer-section">
+      <div class="section-inner">
+        <p class="footer-text">С любовью и радостью жду вас на моём празднике!</p>
+        <p class="footer-name">Инна</p>
+        <div class="footer-divider">
+          <span>🌿</span>
+        </div>
+        <p class="footer-rsvp">Просьба не опаздывать</p>
+        <p class="footer-phone">+7 (950) 853-01-68</p>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
